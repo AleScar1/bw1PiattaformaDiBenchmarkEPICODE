@@ -1,2 +1,10 @@
-
-
+body{
+    background-image: url("assets/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+}
+#logo{
+    max-width: 150px
+    ;
+}
