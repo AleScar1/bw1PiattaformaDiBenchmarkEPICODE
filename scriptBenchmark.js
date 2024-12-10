@@ -98,6 +98,66 @@
       },
     ];
 
-    //funzione timer
+    let score = 0; 
+    let currentQuestionIndex = 0; 
+    
+    
+    function displayQuestion() {
+        const question = questions[currentQuestionIndex];
+        document.getElementById("question").textContent = question.question;
+        document.getElementById("button1").textContent = question.correct_answer;
+        document.getElementById("button2").textContent = question.incorrect_answers[0];
+        document.getElementById("button3").textContent = question.incorrect_answers[1];
+        document.getElementById("button4").textContent = question.incorrect_answers[2];
+    
+  
+        const buttons = [document.getElementById("button1"), document.getElementById("button2"), document.getElementById("button3"), document.getElementById("button4")];
+        const answers = [question.correct_answer, ...question.incorrect_answers];
+        const shuffledAnswers = answers.sort(() => Math.random() - 0.5);
+    
+        
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].textContent = shuffledAnswers[i];
+        }
+    
+        
+        document.getElementById("questionNumber").textContent = `QUESTION ${currentQuestionIndex + 1} di ${questions.length}`;
+    }
+    
+    
+    function checkAnswer(selectedButton) {
+        const question = questions[currentQuestionIndex];
+        if (selectedButton.textContent === question.correct_answer) {
+            score++; 
+        }
+        
+      
+        currentQuestionIndex++;
+    
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            showFinalScore();
+        }
+    }
+    
+    function showFinalScore() {
+        alert(`Il tuo punteggio finale è: ${score} su ${questions.length}`);
+    }
+    
+    document.getElementById("button1").addEventListener("click", function() {
+        checkAnswer(this);
+    });
+    document.getElementById("button2").addEventListener("click", function() {
+        checkAnswer(this);
+    });
+    document.getElementById("button3").addEventListener("click", function() {
+        checkAnswer(this);
+    });
+    document.getElementById("button4").addEventListener("click", function() {
+        checkAnswer(this);
+    });
+    
+    displayQuestion();
 
   
