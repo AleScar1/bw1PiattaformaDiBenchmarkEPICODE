@@ -10,7 +10,14 @@
 
     <div class="containerTop">
         <img src="assets/epicode_logo.png" alt="logo" id="logo">
-        <div id="timer">remaining</div>
+         <div id="timer">
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="45" stroke="#ffffff" stroke-width="5" fill="none" />
+                <circle id="progress" cx="50" cy="50" r="45" stroke="#00ff00" stroke-width="5" fill="none"
+                        stroke-dasharray="283" stroke-dashoffset="283" />
+            </svg>
+            <div id="timer-text">Time remaining: 10 seconds</div>
+        </div>
     </div>
 
     <main id="main">
