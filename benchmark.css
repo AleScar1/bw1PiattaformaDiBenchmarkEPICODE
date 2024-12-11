@@ -22,9 +22,32 @@ body{
     width: 100%;
 }
 
-#timer{
-    font-size: 20px;
-    font-weight: bold;
+#timer {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+}
+
+#timer-text {
+    position: absolute;
+    text-align: center;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+#progress {
+    transition: stroke-dashoffset 1s linear;
 }
 
 #main{
