@@ -105,26 +105,30 @@
     function displayQuestion() {
         const question = questions[currentQuestionIndex];
         document.getElementById("question").textContent = question.question;
-        document.getElementById("button1").textContent = question.correct_answer;
-        document.getElementById("button2").textContent = question.incorrect_answers[0];
-        document.getElementById("button3").textContent = question.incorrect_answers[1];
-        document.getElementById("button4").textContent = question.incorrect_answers[2];
-    
-  
         const buttons = [document.getElementById("button1"), document.getElementById("button2"), document.getElementById("button3"), document.getElementById("button4")];
+    
+
+    if (question.type === "boolean") {
+        
+        buttons[0].textContent = question.correct_answer;
+        buttons[1].textContent = question.incorrect_answers[0];
+        
+        
+        buttons[2].style.display = "none";
+        buttons[3].style.display = "none";
+    } else {
+       
         const answers = [question.correct_answer, ...question.incorrect_answers];
         const shuffledAnswers = answers.sort(() => Math.random() - 0.5);
-    
-        
+
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].textContent = shuffledAnswers[i];
+            buttons[i].style.display = "inline-block"; // Assicurati che siano visibili
         }
-    
-        
-        document.getElementById("questionNumber").textContent = `QUESTION ${currentQuestionIndex + 1} di ${questions.length}`;
     }
-    
-    
+
+        document.getElementById("questionNumber").textContent = `QUESTION ${currentQuestionIndex + 1} di ${questions.length}`;
+  }
     function checkAnswer(selectedButton) {
         const question = questions[currentQuestionIndex];
         if (selectedButton.textContent === question.correct_answer) {
@@ -159,5 +163,4 @@
     });
     
     displayQuestion();
-
-  
+    
