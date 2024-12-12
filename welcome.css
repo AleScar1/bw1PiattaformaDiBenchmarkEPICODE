@@ -7,27 +7,25 @@ img {
   width: 10%;
   height: 20%;
   position: relative;
-  top: 40px;
-  left: 100px;  
+  top: 10px;
+  left: 200px;  
 }
 h1 {
     color: white;
     font-family: "Outfit", sans-serif;
-    font-optical-sizing: 60px;
-    font-style: normal;
+    font-size: 60px;
     position: relative;
-    top: 100px;
-    left: 100px;  
+    top: 20px;
+    left: 200px;  
 }
 p {
     color: white;
     font-family: "Inter", sans-serif;
     font-size: small;
     font-optical-sizing: 10px;
-    font-weight: <weight>;
     position: relative;
-    top: 100px;
-    left: 100px;  
+    top: 10px;
+    left: 200px;  
 }
 #FirstP {
   color: #D20094;
@@ -40,8 +38,8 @@ ul {
     font-size: smaller;
     line-height: 20px;
     position: relative;
-    top: 150px;
-    left: 100px;  
+    top: 30px;
+    left: 200px;  
   }
   #Check{
     display: flex;
@@ -51,8 +49,8 @@ ul {
     font-optical-sizing: 10px;
     font-style: normal;
     position: relative;
-    top: 150px;
-    left: 100px;  
+    top: 40px;
+    left: 200px;  
   }
   button {
     font-weight: bold;
@@ -64,7 +62,7 @@ ul {
     box-shadow:  0px 0px 20px 0 #00FFFF, 0px 0px 20px 0 #00FFFF;
     position: relative;
     left: 900px;
-    top: 100px;
+    bottom: 20px;
   }
 
    
