@@ -1,5 +1,5 @@
 body{
-    background-image: url("assets/bg.jpg");
+    background-image: url("bg.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
@@ -11,27 +11,36 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-#logo{
-    max-width: 150px;
-}
 
 .containerTop{  
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     width: 100%;
+    
+}
+
+#logo {
+    max-width: 150px;
+    position: relative;
+    left:  80px;
+    top: 20px;
 }
 
 #timer {
     position: relative;
     width: 100px;
     height: 100px;
+    right: 100px;
+    top: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 14px;
+    font-family: "Outfit", sans-serif;
+    font-style: normal;
+    font-size: 10px; 
 }
 
 #timer-text {
@@ -56,6 +65,9 @@ svg {
     align-items: center;
     text-align: center;
     width: 100%;
+    position: relative;
+    top: 70px;
+    text-align: center;
 }
 
 #main div {
@@ -65,6 +77,28 @@ svg {
     margin-top: 20px;
 }
 
+#question {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.FlexButton {
+    display: flex;
+    align-items:center; 
+  }
+
+button {
+    background-color: transparent;
+    border-color: white;
+    border-radius: 50px; 
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+
 .buttonQuestion {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -72,4 +106,13 @@ svg {
     padding-right: 60px;
     margin: 10px;
 }
-
+#questionNumber {
+    font-size: small;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    position: relative;
+    top: 200px; 
+    text-align: center;
+}
