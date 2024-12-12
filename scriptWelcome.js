@@ -98,4 +98,18 @@
       },
     ];
 
-    
+    // Attendi che la pagina sia completamente caricata
+document.addEventListener('DOMContentLoaded', function() {
+  // Ottieni il riferimento agli elementi HTML
+  const proceedButton = document.querySelector('button');
+  const checkbox = document.querySelector('input[type="checkbox"]');
+
+  //  un listener per il click sul bottone
+  proceedButton.addEventListener('click', function() {
+    if (checkbox.checked) {
+     window.location.href = 'benchmark.html';
+    } else {
+      alert('Devi selezionare la casella per procedere.');
+    }
+  });
+});
