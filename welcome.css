@@ -64,10 +64,10 @@ ul {
     width: 130px;
     color: #000000; 
     border: 0;
-    box-shadow:  0px 0px 20px 0 #00FFFF, 0px 0px 20px 0 #00FFFF;
     position: relative;
     left: 850px;
     top: 100px
   }
-
-   
+  button:hover {
+  box-shadow:  0px 0px 20px 0 #00FFFF, 0px 0px 20px 0 #00FFFF;
+  }

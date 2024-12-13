@@ -39,8 +39,7 @@ body{
     justify-content: center;
     color: white;
     font-family: "Outfit", sans-serif;
-    font-style: normal;
-    font-size: 10px; 
+    font-size: 9px; 
 }
 
 #timer-text {
@@ -92,11 +91,21 @@ svg {
 button {
     background-color: transparent;
     border-color: white;
+    text-align: center;
+    color: white;
     border-radius: 50px; 
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: <weight>;
     font-style: normal;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+button:hover {
+    background-color: #D20094;
+    opacity: 1;
+    color: white;
   }
 
 .buttonQuestion {
@@ -110,9 +119,10 @@ button {
     font-size: small;
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
-    font-weight: <weight>;
     font-style: normal;
     position: relative;
     top: 200px; 
     text-align: center;
+    color: #D20094;
+    font-weight: bold;
 }
