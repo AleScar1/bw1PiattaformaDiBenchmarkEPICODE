@@ -110,4 +110,14 @@ ul {
   .popup-content button:hover {
     box-shadow: 0px 0px 10px #00FFFF;
   }
+  .popup-content h4 {
+    font-size: 20px; 
+    color: #00FFFF; 
+    text-align: center; 
+    margin-bottom: 20px; 
+    font-family: "Montserrat", sans-serif; 
+    font-weight: bold; 
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7); 
+  }
+  
   
