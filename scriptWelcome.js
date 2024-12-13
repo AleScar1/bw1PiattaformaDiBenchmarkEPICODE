@@ -98,18 +98,38 @@
       },
     ];
 
-    // Attendi che la pagina sia completamente caricata
-document.addEventListener('DOMContentLoaded', function() {
-  // Ottieni il riferimento agli elementi HTML
-  const proceedButton = document.querySelector('button');
-  const checkbox = document.querySelector('input[type="checkbox"]');
 
-  //  un listener per il click sul bottone
-  proceedButton.addEventListener('click', function() {
-    if (checkbox.checked) {
-     window.location.href = 'benchmark.html';
-    } else {
-      alert('Devi selezionare la casella per procedere.');
-    }
-  });
-});
+
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      const proceedButton = document.querySelector("button"); 
+      const checkbox = document.querySelector("#Check input[type='checkbox']"); 
+      const popup = document.getElementById("popup"); 
+      const closePopupButton = document.getElementById("close-popup"); 
+    
+      
+      const showPopup = () => {
+        popup.style.display = "flex"; 
+      };
+    
+      
+      const hidePopup = () => {
+        popup.style.display = "none"; 
+      };
+    
+     
+      proceedButton.addEventListener("click", () => {
+        if (checkbox.checked) {
+          window.location.href = "benchmark.html";
+        } else {
+          showPopup();
+        }
+      });
+    
+      
+      closePopupButton.addEventListener("click", hidePopup);
+    });
+    
+  
+
+
