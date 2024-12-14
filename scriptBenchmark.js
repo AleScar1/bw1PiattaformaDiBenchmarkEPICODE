@@ -196,7 +196,7 @@ displayQuestion();
 
 
 
-// Controlla la risposta selezionata
+
 function checkAnswer(selectedButton) {
   const question = questions[currentQuestionIndex];
   if (selectedButton && selectedButton.textContent === question.correct_answer) {
@@ -215,10 +215,10 @@ function checkAnswer(selectedButton) {
 
 // Mostra la pagina dei risultati con un grafico
 function showResultPage() {
-  // Pulisce la pagina
+  
   document.body.innerHTML = '';
 
-  // Stile per la pagina
+  
   document.body.style.cssText = `
       display: flex;
       flex-direction: column;
@@ -231,18 +231,18 @@ function showResultPage() {
       text-align: center;
   `;
 
-  // Titolo
+  
   const title = document.createElement('h1');
   title.textContent = 'Risultato del Quiz';
   document.body.appendChild(title);
 
-  // Grafico
+  
   const canvas = document.createElement('canvas');
   canvas.id = 'resultChart';
   canvas.style.maxWidth = '500px';
   document.body.appendChild(canvas);
 
-  // Mostra il punteggio
+  
   const scoreText = document.createElement('p');
   scoreText.textContent = `Il tuo punteggio finale è ${score} su ${questions.length}`;
   scoreText.style.cssText = `
