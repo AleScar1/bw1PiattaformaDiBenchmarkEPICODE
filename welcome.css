@@ -8,8 +8,8 @@ img {
   width: 10%;
   height: 20%;
   position: relative;
-  top: 10px;
-  left: 200px;  
+  top: 30px;
+  left: 80px;  
 }
 h1 {
     color: white;
@@ -17,7 +17,7 @@ h1 {
     font-size: 60px;
     position: relative;
     top: 20px;
-    left: 200px; 
+    left: 80px; 
     line-height: 50px;  
 }
 span {
@@ -30,7 +30,7 @@ p {
   font-optical-sizing: 10px;
   position: relative;
   top: 10px;
-  left: 200px;  
+  left: 80px;  
 }
 #FirstP {
   color: #D20094;
@@ -44,7 +44,7 @@ ul {
   line-height: 20px;
   position: relative;
   top: 30px;
-  left: 200px;  
+  left: 80px;  
 }
   #Check{
     display: flex;
@@ -55,7 +55,7 @@ ul {
     font-style: normal;
     position: relative;
     top: 120px;
-    left: 200px;   
+    left: 80px;   
   }
   #proceed {
     font-weight: bold;
@@ -65,7 +65,7 @@ ul {
     color: #000000; 
     border: 0;
     position: relative;
-    left: 850px;
+    left: 1000px;
     top: 100px
   }
   button:hover {
