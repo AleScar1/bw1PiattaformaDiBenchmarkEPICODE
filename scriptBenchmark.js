@@ -194,3 +194,118 @@ document.addEventListener("DOMContentLoaded", function () {
 displayQuestion();
 });
 
+
+
+
+function checkAnswer(selectedButton) {
+  const question = questions[currentQuestionIndex];
+  if (selectedButton && selectedButton.textContent === question.correct_answer) {
+      score++;
+  }
+
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex < questions.length) {
+      displayQuestion();
+  } else {
+      clearInterval(timerInterval); // Ferma il timer
+      showResultPage(); // Mostra la pagina dei risultati
+  }
+}
+
+// Mostra la pagina dei risultati con un grafico
+function showResultPage() {
+  
+  document.body.innerHTML = '';
+
+  
+  document.body.style.cssText = `
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 110vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: white;
+      text-align: center;
+  `;
+
+  
+  const title = document.createElement('h1');
+  title.textContent = 'Risultato del Quiz';
+  document.body.appendChild(title);
+
+  
+  const canvas = document.createElement('canvas');
+  canvas.id = 'resultChart';
+  canvas.style.maxWidth = '500px';
+  document.body.appendChild(canvas);
+
+  
+  const scoreText = document.createElement('p');
+  scoreText.textContent = `Il tuo punteggio finale è ${score} su ${questions.length}`;
+  scoreText.style.cssText = `
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #faffd1;
+  `;
+  document.body.appendChild(scoreText);
+
+  // Bottone per rifare il quiz
+  const retryButton = document.createElement('button');
+  retryButton.textContent = 'Ricomincia il Quiz';
+  retryButton.style.cssText = `
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: white;
+      background-color: #ff6f61;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  `;
+  retryButton.addEventListener('mouseenter', () => {
+      retryButton.style.backgroundColor = '#ff8c85';
+  });
+  retryButton.addEventListener('mouseleave', () => {
+      retryButton.style.backgroundColor = '#ff6f61';
+  });
+  retryButton.addEventListener('click', () => location.reload());
+  document.body.appendChild(retryButton);
+
+  
+  const ctx = canvas.getContext('2d');
+  new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ['Corrette', 'Sbagliate'],
+          datasets: [{
+              data: [score, questions.length - score],
+              backgroundColor: ['#4caf50', '#f44336'],
+          }],
+      },
+      options: {
+          plugins: {
+              legend: {
+                  position: 'bottom',
+                  labels: {
+                      color: 'white',
+                      font: { size: 14 }
+                  }
+              },
+              title: {
+                  display: true,
+                  text: 'Statistiche del Quiz',
+                  color: 'white',
+                  font: { size: 18 }
+              }
+          },
+          responsive: true,
+      }
+  });
+}
+
+
+ 
