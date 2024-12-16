@@ -208,14 +208,13 @@ function checkAnswer(selectedButton) {
   if (currentQuestionIndex < questions.length) {
       displayQuestion();
   } else {
-      clearInterval(timerInterval); // Ferma il timer
-      showResultPage(); // Mostra la pagina dei risultati
+      clearInterval(timerInterval); 
+      showResultPage(); 
   }
 }
 
 // Mostra la pagina dei risultati con un grafico
 function showResultPage() {
-  
   document.body.innerHTML = '';
 
   
@@ -224,22 +223,40 @@ function showResultPage() {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 110vh;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #4facfe, #00f2fe);
+      height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background-image: url('assets/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: white;
       text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
   `;
 
   
   const title = document.createElement('h1');
   title.textContent = 'Risultato del Quiz';
+  title.style.cssText = `
+      font-family: 'Outfit', sans-serif;
+      font-size: 3rem;
+      color:rgb(255, 255, 255);
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+      margin-bottom: 20px;
+  `;
   document.body.appendChild(title);
 
   
   const canvas = document.createElement('canvas');
   canvas.id = 'resultChart';
-  canvas.style.maxWidth = '500px';
+  canvas.style.cssText = `
+      max-width: 380px;
+      width: 80%;
+      aspect-ratio: 1 / 1; 
+      margin: 10px 0 10px 90px;
+  `;
   document.body.appendChild(canvas);
 
   
@@ -247,30 +264,36 @@ function showResultPage() {
   scoreText.textContent = `Il tuo punteggio finale è ${score} su ${questions.length}`;
   scoreText.style.cssText = `
       font-size: 1.5rem;
-      margin-top: 20px;
+      margin-top: 10px;
       color: #faffd1;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
   `;
   document.body.appendChild(scoreText);
 
-  // Bottone per rifare il quiz
+  
   const retryButton = document.createElement('button');
   retryButton.textContent = 'Ricomincia il Quiz';
   retryButton.style.cssText = `
-      margin-top: 30px;
-      padding: 10px 20px;
+      margin-top: 20px;
+      padding: 12px 25px;
+       margin-left: 80px;
       font-size: 1rem;
       color: white;
-      background-color: #ff6f61;
+      background-color: #00FFFF;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0px 0px 10px rgba(9, 247, 247, 0.7);
   `;
   retryButton.addEventListener('mouseenter', () => {
-      retryButton.style.backgroundColor = '#ff8c85';
+      retryButton.style.backgroundColor = '#FF8C85';
+      retryButton.style.boxShadow = '0px 0px 15px rgba(14, 234, 250, 0.7)';
   });
   retryButton.addEventListener('mouseleave', () => {
-      retryButton.style.backgroundColor = '#ff6f61';
+      retryButton.style.backgroundColor = '#D20094';
+      retryButton.style.boxShadow = '0px 0px 10px rgba(9, 241, 230, 0.7)';
   });
   retryButton.addEventListener('click', () => location.reload());
   document.body.appendChild(retryButton);
@@ -284,6 +307,7 @@ function showResultPage() {
           datasets: [{
               data: [score, questions.length - score],
               backgroundColor: ['#4caf50', '#f44336'],
+              hoverOffset: 4, 
           }],
       },
       options: {
@@ -303,6 +327,7 @@ function showResultPage() {
               }
           },
           responsive: true,
+          maintainAspectRatio: true, 
       }
   });
 }
